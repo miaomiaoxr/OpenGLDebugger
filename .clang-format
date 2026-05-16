@@ -1,0 +1,76 @@
+BasedOnStyle: LLVM
+
+# =========================
+# Basic Formatting
+# =========================
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Important for GPU / graphics code readability (avoid aggressive line breaking)
+ColumnLimit: 120
+
+# =========================
+# Function Calls (critical for OpenGL APIs)
+# =========================
+AllowAllArgumentsOnNextLine: false
+BinPackArguments: true
+BinPackParameters: true
+
+# Inline small functions for engine-style code clarity
+AllowShortFunctionsOnASingleLine: Inline
+
+# =========================
+# Control Statements
+# =========================
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+
+# =========================
+# Brace Style (engine / driver style)
+# =========================
+BreakBeforeBraces: Attach
+
+# =========================
+# Pointer Style (common in graphics / engine code)
+# =========================
+PointerAlignment: Left
+
+# =========================
+# Include Sorting (engine-grade organization)
+# =========================
+SortIncludes: true
+IncludeBlocks: Regroup
+
+# OpenGL-related include grouping priorities
+IncludeCategories:
+  - Regex: '^<glad/.*>'
+    Priority: 1
+  - Regex: '^<GLFW/.*>'
+    Priority: 2
+  - Regex: '^<glm/.*>'
+    Priority: 3
+  - Regex: '.*'
+    Priority: 4
+
+# =========================
+# Lambda Formatting (useful for callbacks)
+# =========================
+AllowShortLambdasOnASingleLine: All
+
+# =========================
+# Alignment (avoid over-formatting, but improve readability)
+# =========================
+AlignOperands: true
+AlignTrailingComments: true
+
+# =========================
+# Spacing Rules (more compact style)
+# =========================
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: false
+
+# =========================
+# Engine / GPU-specific preferences
+# =========================
+FixNamespaceComments: false
