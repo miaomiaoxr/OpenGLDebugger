@@ -21,11 +21,13 @@ target_include_directories(glad PUBLIC
 add_executable(
     OpenGLDebugger
     src/main.cpp
+    src/shader.cpp
 )
 
 target_include_directories(
     OpenGLDebugger
     PRIVATE
+    src
     external/glad/include
 )
 
@@ -45,14 +47,18 @@ endif()
 
 # Linux OpenGL
 if(UNIX AND NOT APPLE)
-
     find_package(OpenGL REQUIRED)
-
     target_link_libraries(
         OpenGLDebugger
         OpenGL::GL
         dl
         pthread
     )
-
 endif()
+
+# copy shaders to output directory after build
+add_custom_command(TARGET OpenGLDebugger POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/shaders
+    $<TARGET_FILE_DIR:OpenGLDebugger>/shaders
+)
