@@ -15,6 +15,7 @@ add_library(glad
 
 target_include_directories(glad PUBLIC
     external/glad/include
+    external/glm
 )
 
 # executable
