@@ -22,7 +22,7 @@ target_include_directories(glad PUBLIC
 add_executable(
     OpenGLDebugger
     src/main.cpp
-    src/shader.cpp
+    src/Shader.cpp
     src/Camera.cpp
 )
 

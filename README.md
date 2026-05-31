@@ -22,8 +22,11 @@ The long-term goal is to evolve this from a simple demo into an engine-style ren
 - VBO / VAO pipeline setup
 - Shader compilation and linking
 - External GLSL shader files
-- Basic Shader abstraction class
-- Triangle rendering pipeline
+- Shader abstraction class
+- FPS-style camera with mouse/keyboard input
+- MVP matrix pipeline (model / view / projection)
+- Depth testing
+- 3D cube rendering with per-face vertex colors
 
 ---
 
@@ -34,15 +37,18 @@ OpenGLDebugger/
 ├── external/
 │   ├── glad/
 │   ├── glfw/
+│   └── glm/
 │
 ├── shaders/
-│   ├── basic.vert
-│   └── basic.frag
+│   ├── triangle.vert
+│   └── triangle.frag
 │
 ├── src/
 │   ├── main.cpp
 │   ├── Shader.h
-│   └── Shader.cpp
+│   ├── Shader.cpp
+│   ├── Camera.h
+│   └── Camera.cpp
 │
 ├── CMakeLists.txt
 └── README.md
@@ -111,14 +117,17 @@ Planned features:
 
 ### Rendering Core
 
-- [ ] MVP matrix pipeline
-- [ ] Uniform abstraction system
-- [ ] Camera system
-- [ ] FPS-style movement controls
+- [x] MVP matrix pipeline
+- [x] Uniform abstraction system
+- [x] Camera system
+- [x] FPS-style movement controls
 - [ ] Mesh abstraction
 
 ### Rendering Features
 
+- [x] Vertex color attributes
+- [x] Depth testing
+- [x] 3D cube rendering
 - [ ] Texture loading
 - [ ] Model loading
 - [ ] Multiple shader support
