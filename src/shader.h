@@ -16,7 +16,7 @@ class Shader {
     void use() const;
 
     Shader(const Shader&) = delete;
-    Shader& operator=(const Shader&) = delete;
+    Shader& operator=(const Shader&) = delete; 
     void setMat4(const std::string& name, const glm::mat4& mat);
 
   private:
